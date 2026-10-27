@@ -9,7 +9,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Loyiha fayllarini yaratish
-        run: bash setup.sh
+        run: |
+          echo "Repository fayllari:"
+          ls -la
+          f=$(ls | grep -i '^setup' | head -n 1)
+          echo "Topilgan fayl: $f"
+          bash "$f"
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
